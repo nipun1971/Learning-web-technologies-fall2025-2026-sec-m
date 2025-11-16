@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Email Validation
+
+    </title>
+</head>
+
+<body>
+
+    <h2>Email
+
+    </h2>
+
+    Email: <input type="text" id="email">
+    <input type="button" value="submit" onclick="validateEmail()">
+    <p id="msg">
+
+    </p>
+
+    <script>
+        function validateEmail() {
+            let email = document.getElementById("email").value.trim();
+            let msg = document.getElementById("msg");
+
+            if (email.length == 0) {
+                msg.innerHTML = "Email cannot be empty";
+                msg.style.color = "red";
+                return;
+            }
+
+            let atPos = email.indexOf("@");
+            let dotPos = email.lastIndexOf(".");
+
+            if (atPos == -1 || dotPos == -1) {
+                msg.innerHTML = "Email must contain @ and .";
+                msg.style.color = "red";
+                return;
+            }
+
+            if (atPos > dotPos) {
+                msg.innerHTML = "@ must be before .";
+                msg.style.color = "red";
+                return;
+            }
+
+            msg.innerHTML = "Valid Email";
+            msg.style.color = "green";
+        }
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,61 @@
+<html>
+
+<head>
+    <title>DOB Validation
+
+    </title>
+</head>
+
+<body>
+
+    <h2>Date of Birth</h2>
+
+    DD: <input type="text" id="dd" size="2">
+    MM: <input type="text" id="mm" size="2">
+    YYYY: <input type="text" id="yy" size="4">
+    <br><br>
+
+    <input type="button" value="submit" onclick="validateDOB()">
+    <p id="msg">
+    </p>
+
+    <script>
+        function validateDOB() {
+            let dd = Number(document.getElementById("dd").value);
+            let mm = Number(document.getElementById("mm").value);
+            let yy = Number(document.getElementById("yy").value);
+
+            let msg = document.getElementById("msg");
+
+            if (Number.isNaN(dd) || Number.isNaN(mm) || Number.isNaN(yy)) {
+                msg.innerHTML = "All values must be numbers";
+                msg.style.color = "pink";
+                return;
+            }
+
+            if (dd < 0 || dd > 31) {
+                msg.innerHTML = "Invalid day";
+                msg.style.color = "pink";
+                return;
+            }
+
+            if (mm < 1 || mm > 12) {
+                msg.innerHTML = "Invalid month";
+                msg.style.color = "pink";
+                return;
+            }
+
+            if (yy < 2000 || yy > 2025) {
+                msg.innerHTML = "Invalid year";
+                msg.style.color = "pink";
+                return;
+            }
+
+            msg.innerHTML = "Valid DOB";
+            msg.style.color = "purple";
+        }
+    </script>
+
+</body>
+
+</html>

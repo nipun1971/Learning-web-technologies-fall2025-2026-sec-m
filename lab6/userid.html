@@ -1,0 +1,49 @@
+<html>
+
+<head>
+    <title>User Validation
+
+    </title>
+</head>
+
+<body>
+
+    <h2>User Info
+
+    </h2>
+
+    User ID: <input type="text" id="uid"><br><br>
+    Picture: <input type="file" id="pic"><br><br>
+
+    <input type="button" value="submit" onclick="validateUser()">
+    <p id="msg">
+
+    </p>
+
+    <script>
+        function validateUser() {
+            let uid = Number(document.getElementById("uid").value);
+            let pic = document.getElementById("pic").value;
+
+            let msg = document.getElementById("msg");
+
+            if (Number.isNaN(uid) || uid <= 0) {
+                msg.innerHTML = "User ID must be a positive number";
+                msg.style.color = "black";
+                return;
+            }
+
+            if (pic == "") {
+                msg.innerHTML = "Please upload a picture";
+                msg.style.color = "black";
+                return;
+            }
+
+            msg.innerHTML = "Valid Input";
+            msg.style.color = "black";
+        }
+    </script>
+
+</body>
+
+</html>
